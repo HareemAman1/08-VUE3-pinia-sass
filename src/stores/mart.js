@@ -4,10 +4,12 @@ export const useCartStore = defineStore('cart', {
   state: () => ({
     items: [],
   }),
+
   getters: {
     totalItems: (state) => state.items.reduce((total, item) => total + item.quantity, 0),
     totalPrice: (state) => state.items.reduce((total, item) => total + item.price * item.quantity, 0),
   },
+  
   actions: {
     addItem(product) {
       const existingItem = this.items.find(item => item.id === product.id);
