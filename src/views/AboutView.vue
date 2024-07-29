@@ -3,8 +3,8 @@
   <div class="about">
     <Form @submit="handleSubmit">
       <div>
-        <label for="name">Name:</label>
-        <Field name="name" :rules="isRequired" placeholder="Enter name" />
+        <label for="name">Username:</label>
+        <Field name="name" :rules="isRequired" placeholder="Enter username" />
         <ErrorMessage name="name" />
       </div>
 
@@ -40,8 +40,11 @@ function ageValidation(value) {
   if (!value) {
     return "Age is required";
   }
-  if (isNaN(value) || value <= 0) {
+  if (isNaN(value) || value < 0) {
     return "Age must be a positive number";
+  }
+  if (value == 0){
+    return "Age must be greater than 1";
   }
   return true;
 }
@@ -49,7 +52,7 @@ function ageValidation(value) {
 
 const handleSubmit = (values) => {
   console.log(values);
-  alert(`Name:, ${values.name}`);
+  alert(`${values.name}'s age is ${values.age}`);
   return values; 
 };
 </script>
@@ -68,6 +71,8 @@ span
   color: red 
   display: block 
   text-align: center 
+  font-weight: bold
+  // margin-bottom: 15px
 button 
   width: 330px 
   height: 40px 
@@ -77,6 +82,7 @@ button
   color: white 
   font-weight: bold 
   cursor: pointer
+  margin-top: 15px
   &:hover 
     background: white 
     color: purple

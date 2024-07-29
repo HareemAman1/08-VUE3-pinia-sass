@@ -32,8 +32,8 @@ export default {
 
 <style lang="sass" scoped>
 button
-    padding: 10px 15px
-    margin: 10px
+    padding: 15px 20px
+    margin: 10px 30px
     background: plum
     border: 1px solid plum
     border-radius: 45%

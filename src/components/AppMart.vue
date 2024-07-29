@@ -5,7 +5,7 @@
         <li v-for="item in cartItems" :key="item.id">
           {{ item.name }} - {{ item.quantity }} x Rs.{{ item.price }}
           <button class="btns" @click="incrementItem(item.id)">+</button>
-          <button class="btns"  @click="decrementItem(item.id)">--</button>
+          <button class="btns"  @click="decrementItem(item.id)">-</button>
           <button @click="removeItem(item.id)">Remove</button>
         </li>
       </ul>
@@ -50,7 +50,9 @@
     background: red
     border: 1px solid red
     font-weight: bold
+    border-radius: 5px
+    letter-spacing: 1px
 
-p
+  p
     font-weight: bold
   </style>

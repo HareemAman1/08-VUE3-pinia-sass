@@ -12,7 +12,6 @@
   
   <script>
   import { useCartStore } from '../stores/mart';
-  
   export default {
     setup() {
       const cartStore = useCartStore();
@@ -30,6 +29,7 @@
   };
   </script>
   
+  
   <style lang="sass" scoped>
   button
     padding: 8px 12px 
@@ -38,5 +38,5 @@
     background: green
     border: 1px solid green
     font-weight: bold
-
+    border-radius: 5px
   </style>
