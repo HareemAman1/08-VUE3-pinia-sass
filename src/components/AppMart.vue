@@ -43,6 +43,7 @@
     border-radius: 8px
     color: black
     font-weight: 900
+
   button
     padding: 8px 12px 
     margin: 10px
