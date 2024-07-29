@@ -6,9 +6,11 @@ export const useCounterStore = defineStore({
   state: () => ({
     count: 0
   }),
+  
   getters: {
     doubled: (state) => state.count * 2
   },
+
   actions: {
     increaseNumber() {
       this.count++
