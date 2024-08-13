@@ -5,6 +5,16 @@ const app = express();
 
 app.use(express.json());
 
+const dataFilePath = 'data.json';
+app.get('/submit', (req, res) => {
+  if (fs.existsSync(dataFilePath)) {
+    const fileContent = fs.readFileSync(dataFilePath, 'utf-8');
+    res.json(JSON.parse(fileContent));
+  } else {
+    res.json([]);
+  }
+});
+
 app.post('/submit', (req, res) => {
   const formData = req.body;
 
@@ -12,7 +22,6 @@ app.post('/submit', (req, res) => {
     return res.status(400).send('Fill feilds');
   }
 
-  const dataFilePath = 'data.json';
   let existingData = [];
 
   if (fs.existsSync(dataFilePath)) {
