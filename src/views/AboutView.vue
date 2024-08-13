@@ -27,6 +27,7 @@
 <script setup>
 import { Field, Form, ErrorMessage } from "vee-validate";
 import * as yup from "yup";
+import axios from 'axios';
 
 // Validation
 function isRequired(value) {
@@ -50,11 +51,21 @@ function ageValidation(value) {
 }
 
 
-const handleSubmit = (values) => {
-  console.log(values);
-  alert(`${values.name}'s age is ${values.age}`);
-  return values; 
+// const handleSubmit = (values) => {
+//   console.log(values);
+//   alert(`${values.name}'s age is ${values.age}`);
+//   return values; 
+// };
+
+const handleSubmit = async (values) => {
+  try {
+    const response = await axios.post('http://localhost:3000/submit', values);
+    alert(response.data);
+  } catch (error) {
+    console.error("There was an error saving the data!", error);
+  }
 };
+
 </script>
 
 <style lang="sass" scoped>
