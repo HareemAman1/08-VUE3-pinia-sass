@@ -9,5 +9,4 @@ import AppCounters from '../components/AppCounters.vue'
 </script>
 
 <style>
-
 </style>
